@@ -98,11 +98,7 @@
                                 of web development.</p>
                             <a href="./assets/Amit kavathekar web devloper.pdf" download="amit's resume"  class="colored-btn mt-1">Download cv</a>
                             
-                           
-    
-
-                            <a class="colored-btn mt-1"><button  id="copyButton">  <input type="text" id="email" value="amitkavathekar@123.com" readonly>Copy Email</button>
-                                <span id="confirmation" style="display:none;">Copied!</span></a>
+                            
                         </div>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0"  data-aos="fade-left"
@@ -136,17 +132,14 @@
                                 I completed several projects that honed my skills in creating responsive and
                                 user-friendly web applications.
                             </p>
-                            <div class="row pt-2">
+                            <a style="display: flex;align-items: center;" class="mt-1"> <button class="colored-btn" id="copyButton">Copy Email</button></a>
+                            <div class="row pt-2 mt-4">
                                 <div class="col-6 col-md-4">
                                     <h5 class="text-primary fw-semibold fs-4 mb-0">4+</h5>
                                     <span class="text-dark">project completed
                                     </span>
                                 </div>
-                                <div class="col-5 col-md-4">
-                                    <h5 class="text-primary fw-semibold fs-4 mb-0">2
-                                    </h5>
-                                    <span class="text-dark">Experience </span>
-                                </div>
+
                             </div>
                         </div>
 
@@ -533,21 +526,22 @@
 </script>
 <script>
     document.getElementById('copyButton').addEventListener('click', function() {
-        var email = document.getElementById('email');
-        email.select();
-        email.setSelectionRange(0, 99999); // For mobile devices
+        var email = "amitkavathekar123@gmail.com";
+        var button = document.getElementById('copyButton');
 
-        // Copy the text inside the input field
-        document.execCommand('copy');
+        // Copy the email to the clipboard
+        navigator.clipboard.writeText(email).then(function() {
+            // Change button text to "Copied!"
+            var originalText = button.innerText;
+            button.innerText = 'Copied!';
 
-        // Show confirmation message
-        var confirmation = document.getElementById('confirmation');
-        confirmation.style.display = 'inline';
-
-        // Hide the confirmation message after 2 seconds
-        setTimeout(function() {
-            confirmation.style.display = 'none';
-        }, 2000);
+            // Revert button text back to original after 2 seconds
+            setTimeout(function() {
+                button.innerText = originalText;
+            }, 2000);
+        }).catch(function(error) {
+            console.error('Error copying text: ', error);
+        });
     });
 </script>
 
