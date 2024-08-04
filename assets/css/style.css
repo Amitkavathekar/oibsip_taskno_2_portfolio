@@ -550,7 +550,7 @@ a:hover {
 .feacture-box-small {
     padding: 15px;
     align-items: center;
-    width: 250px;
+    width: 100%;
     height: 70px;
 }
 
